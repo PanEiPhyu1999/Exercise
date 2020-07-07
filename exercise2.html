@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+    <title>Document</title>
+    <style>
+         .love{
+            width:120px;
+            background-color:chocolate;
+            color:bisque;
+            padding:7px 10px;
+            margin:5px 0;
+            border-radius:4px;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="love">
+        Enter Date:<br><br>
+        <input type="date" id="date1"><br><br>
+        <button type="button" onclick="myfunction()">Click Me</button>
+    </div>
+    <script>
+        function myfunction(){
+        var ndate=new Date();
+        var currentyear=ndate.getFullYear();
+            var cdate=document.getElementById("date1").value;
+            var ddate=new Date(cdate);
+            var inyear=ddate.getFullYear();
+            var ans=currentyear-inyear;
+       
+            if(ans>=18){
+                window.alert("You are over 18 year");
+            }
+        else{
+                window.alert("You are under 18 year");
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     .main{
+         border:1px solid grey;
+         width:300px;
+         height:500px;
+
+     }
+
+     .header{
+         border:1px solid blue;
+         height:20%;
+         background-color: chocolate;
+
+     }
+     .menu{
+         background-color: crimson;
+         height:30%;
+
+     }
+     .grid-container{
+         display:grid;
+         grid-template-columns: auto auto auto auto;
+         border:1px solid purple;
+
+     }
+     .grid-container > div{
+         background-color: darkgoldenrod;
+         text-align: center;
+         padding:20px 0;
+         font-size: 20px;
+     }
+     h1{
+         text-align: left;
+         color: darkred;
+         padding-top: 0px;
+     }
+     .itex{
+         grid-column: 4;
+         grid-row: 4/ span 2;
+         text-align: center;
+     }
+</style>
+<body>
+    <div class="main">
+        <div class="header">
+            <h1>Calculator</h1>
+         </div>
+         <div class="menu">
+
+         </div>
+         <div class="grid-container">
+             <div class="itex1">(</div>
+             <div class="itex2">)</div>
+             <div class="itex3">%</div>
+             <div class="itex4">*</div>
+             <div class="itex5">1</div>
+             <div class="itex6">2</div>
+             <div class="itex7">3</div>
+             <div class="itex8">-</div>
+             <div class="itex9">4</div>
+             <div class="itex10">5</div>
+             <div class="itex11">6</div>
+             <div class="itex12">+</div>
+             <div class="itex13">7</div>
+             <div class="itex14">8</div>
+             <div class="itex15">9</div>
+             <div class="itex16">C</div>
+             <div class="itex17">0</div>
+             <div class="itex">=</div>
+         </div>
+    </div>
+</body>
+</html>

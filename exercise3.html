@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+    <title>Document</title>
+    <style>
+         input[type=text]{
+            width:50%;
+            padding: 9px 10px;
+            margin:30px 0 ;
+            display:inline-block;
+            
+            border:1px solid gray;
+            border-radius:2px ;
+            cursor: pointer;
+
+        }
+        #btn{
+            width:80px;
+            background-color:chocolate;
+            color:bisque;
+            padding:7px 10px;
+            margin:5px 0;
+            border-radius:4px;
+            cursor: pointer;
+
+        }
+        #btn:hover{
+            background-color:hotpink;
+        }
+        div{
+            border-radius:2px;
+            background-color: indigo;
+            padding:65px;
+            width:800px;
+
+            height:300px;
+            margin:60px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="one">Please Enter a first number</label>
+        <input type="text" id="oneNo" placeholder="Enter first number"><br>
+        <label for="two">Please Enter a second number</label>
+        <input type="text" id="twoNo" placeholder="Enter second number"><br>
+        <button type="button" id="btn" onclick="myfunction()">Submit</button>
+    </form>
+    <label id="Answer"></label>
+    <script>
+        function myfunction(){
+            var n1=parseInt(document.getElementById("oneNo").value);
+            var n2=parseInt(document.getElementById("twoNo").value);
+            for(var x=n1;x<=n2;x++){
+               if(x%2==0 && x%5==0)
+               {
+                    document.getElementById("Answer").innerHTML+=x+" "+"Divide"+"<br>";
+
+                }
+            }
+        }
+    </script>
+</body>
+</html>
