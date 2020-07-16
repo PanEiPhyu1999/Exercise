@@ -1,0 +1,101 @@
+mysql> select * from menu;
++--------+-----------+-------------+
+| menuID | name      | description |
++--------+-----------+-------------+
+| 1      | Breakfast | well        |
+| 2      | Chicken   | well        |
+| 3      | Seafood   | well        |
+| 4      | Team      | well        |
+| 5      | Juice     | well        |
++--------+-----------+-------------+
+5 rows in set (0.05 sec)
+
+mysql> select * from food;
++--------+-------------------+-------+---------+
+| foodId | name              | price | menu_Id |
++--------+-------------------+-------+---------+
+| 1      | salad             | 5000  |       1 |
+| 10     | lobster           | 8000  |       3 |
+| 11     | bread             | 500   |       1 |
+| 12     | butter            | 1000  |       1 |
+| 13     | milk              | 500   |       1 |
+| 14     | rice              | 700   |       1 |
+| 15     | five star chicken | 4700  |       2 |
+| 16     | u2                | 700   |       4 |
+| 17     | rich              | 300   |       4 |
+| 18     | super             | 350   |       4 |
+| 19     | orange juice      | 750   |       5 |
+| 2      | Hot pot           | 8000  |       1 |
+| 20     | pessi             | 900   |       5 |
+| 21     | lemon juice       | 600   |       5 |
+| 22     | manago juice      | 850   |       5 |
+| 23     | Lotteria          | 8500  |       2 |
+| 24     | KFC               | 8500  |       2 |
+| 3      | MarlarShanCall    | 2000  |       2 |
+| 4      | CoCola            | 300   |       5 |
+| 5      | Platinum          | 200   |       4 |
+| 6      | seafoodeat        | 3500  |       3 |
+| 7      | crab              | 3500  |       3 |
+| 8      | chitosan          | 3900  |       3 |
+| 9      | scampi            | 4800  |       3 |
++--------+-------------------+-------+---------+
+24 rows in set (0.00 sec)
+
+mysql> select * from orders;
++----------+------------+------+-------+------------+--------+
+| ordersId | sale_date  | qty  | price | totalprice | foodId |
++----------+------------+------+-------+------------+--------+
+| 1        | 2020-07-07 |    3 | 6000  | 6400       | 1      |
+| 2        | 2019-10-20 |    2 | 300   | 7000       | 15     |
+| 3        | 2019-11-21 |   10 | 9000  | 78000      | 11     |
+| 4        | 2019-10-21 |    1 | 800   | 9600       | 13     |
+| 5        | 2019-10-21 |    9 | 9800  | 6000       | 17     |
++----------+------------+------+-------+------------+--------+
+5 rows in set (0.00 sec)
+mysql> select food.name,orders.totalprice from orders,food where orders.foodId and totalprice in (select max(totalprice)from orders);
++-------------------+------------+
+| name              | totalprice |
++-------------------+------------+
+| bread             | 9600       |
+| butter            | 9600       |
+| chitosan          | 9600       |
+| CoCola            | 9600       |
+| crab              | 9600       |
+| five star chicken | 9600       |
+| Hot pot           | 9600       |
+| KFC               | 9600       |
+| lemon juice       | 9600       |
+| lobster           | 9600       |
+| Lotteria          | 9600       |
+| manago juice      | 9600       |
+| MarlarShanCall    | 9600       |
+| milk              | 9600       |
+| orange juice      | 9600       |
+| pessi             | 9600       |
+| Platinum          | 9600       |
+| rice              | 9600       |
+| rich              | 9600       |
+| salad             | 9600       |
+| scampi            | 9600       |
+| seafoodeat        | 9600       |
+| super             | 9600       |
+| u2                | 9600       |
++-------------------+------------+
+24 rows in set (0.00 sec)
+mysql> select orders.sale_date,sum(totalprice) as sale_amount from orders group by sale_date;
++------------+-------------+
+| sale_date  | sale_amount |
++------------+-------------+
+| 2020-07-07 |        6400 |
+| 2019-10-20 |        7000 |
+| 2019-11-21 |       78000 |
+| 2019-10-21 |       15600 |
++------------+-------------+
+4 rows in set (0.00 sec)
+mysql> select sum(totalprice) from orders where sale_date between '2019-10-21' and  '2019-10-21';
++-----------------+
+| sum(totalprice) |
++-----------------+
+|           15600 |
++-----------------+
+1 row in set (0.00 sec)
